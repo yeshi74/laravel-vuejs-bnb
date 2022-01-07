@@ -5303,6 +5303,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     BookableListItem: _BookableListItem__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      bookable1: {
+        title: "Cheap Villa !!",
+        content: "A very cheap villa"
+      },
+      bookable2: {
+        title: "Cheap Villa 2",
+        content: "A very cheap villa 2"
+      }
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    console.log('created');
+    console.log(this.bookable1);
+    console.log(this.bookable2);
+    setTimeout(function () {
+      _this.bookable1.title = 'Expensive Villa';
+      _this.bookable2.title = 'Very Expensive Villa';
+    }, 5000);
   }
 });
 
@@ -28268,16 +28291,16 @@ var render = function () {
     [
       _c("bookable-list-item", {
         attrs: {
-          "item-title": "This is title",
-          "item-content": "This is content",
+          "item-title": _vm.bookable1.title,
+          "item-content": _vm.bookable1.content,
           price: 1000,
         },
       }),
       _vm._v(" "),
       _c("bookable-list-item", {
         attrs: {
-          "item-title": "This is title 2",
-          "item-content": "This is content 2",
+          "item-title": _vm.bookable2.title,
+          "item-content": _vm.bookable2.content,
           price: 1500,
         },
       }),
