@@ -5270,6 +5270,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     itemTitle: String,
@@ -5307,6 +5308,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -5315,8 +5317,14 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       bookables: null,
-      loading: false
+      loading: false,
+      columns: 3
     };
+  },
+  computed: {
+    rows: function rows() {
+      return this.bookables == null ? 0 : Math.ceil(this.bookables.length / this.columns);
+    }
   },
   created: function created() {
     var _this = this;
@@ -5326,6 +5334,21 @@ __webpack_require__.r(__webpack_exports__);
       _this.bookables = [{
         title: 'Cheap Villa!!',
         content: 'Very cheap Villa'
+      }, {
+        title: 'Cheap Villa 2!!',
+        content: 'Very cheap Villa 2'
+      }, {
+        title: 'Cheap Villa 2!!',
+        content: 'Very cheap Villa 2'
+      }, {
+        title: 'Cheap Villa 2!!',
+        content: 'Very cheap Villa 2'
+      }, {
+        title: 'Cheap Villa 2!!',
+        content: 'Very cheap Villa 2'
+      }, {
+        title: 'Cheap Villa 2!!',
+        content: 'Very cheap Villa 2'
       }, {
         title: 'Cheap Villa 2!!',
         content: 'Very cheap Villa 2'
@@ -28261,12 +28284,12 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v(_vm._s(_vm.itemTitle))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.itemContent))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.price))]),
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-body" }, [
+      _c("h5", { staticClass: "card-title" }, [_vm._v(_vm._s(_vm.itemTitle))]),
+      _vm._v(" "),
+      _c("p", { staticClass: "card-text" }, [_vm._v(_vm._s(_vm.itemContent))]),
+    ]),
   ])
 }
 var staticRenderFns = []
@@ -28293,6 +28316,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm._v("\n    Rows is: " + _vm._s(_vm.rows) + "\n    "),
     _vm.loading
       ? _c("div", [_vm._v("Data is loading...")])
       : _c(
