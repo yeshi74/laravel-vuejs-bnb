@@ -3,10 +3,10 @@
         <div v-if="loading">Data is loading...</div>
         <div v-else>
             <div class="row mb-4" v-for="row in rows" :key="'row' + row">
-                <div class="col" v-for="(bookable, column) in bookablesInRow(row)" :key="'row' + row + column">
+                <div class="col d-flex align-item-stretch" v-for="(bookable, column) in bookablesInRow(row)" :key="'row' + row + column">
                     <bookable-list-item
                         :item-title="bookable.title"
-                        :item-content="bookable.content"
+                        :item-description="bookable.description"
                         :price="1000"
                     ></bookable-list-item>
                 </div>
@@ -61,38 +61,11 @@ export default {
             .catch(result => console.log(`Error ${result}`));
         console.log(p);
 
-        setTimeout(() => {
-            this.bookables = [{
-                title: 'Cheap Villa!!',
-                content: 'Very cheap Villa'
-            },
-            {
-                title: 'Cheap Villa 2!!',
-                content: 'Very cheap Villa 2'
-            },
-            {
-                title: 'Cheap Villa 2!!',
-                content: 'Very cheap Villa 2'
-            },
-            {
-                title: 'Cheap Villa 2!!',
-                content: 'Very cheap Villa 2'
-            },
-            {
-                title: 'Cheap Villa 2!!',
-                content: 'Very cheap Villa 2'
-            },
-            {
-                title: 'Cheap Villa 2!!',
-                content: 'Very cheap Villa 2'
-            },
-            {
-                title: 'Cheap Villa 2!!',
-                content: 'Very cheap Villa 2'
-            }
-            ];
-            this.loading = false;
-        }, 2000);
+    const request = axios.get("/api/bookables").then(response => {
+        this.bookables = response.data;
+        this.loading = false;
+    });
+
     }
 };
 </script>
