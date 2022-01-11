@@ -11,4 +11,9 @@ class BookablesController extends Controller
     {
         return Bookable::all();
     }
+
+    public function show($id)
+    {
+        return Bookable::findOrFail($id);
+    }
 }
