@@ -14,3 +14,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //resource controller
 Route::apiResource('bookables', 'App\Http\Controllers\Api\BookablesController');
+Route::get('bookables/{bookable}/availability', 'App\Http\Controllers\Api\BookableAvailabilityController')
+    ->name('bookables.availability.show');
