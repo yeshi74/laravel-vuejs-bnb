@@ -8,3 +8,4 @@ Used the backend with Laravel API and frontend with Vuejs.
 - Lifecycle hooks
 
 
+![2022-01-18_10-43](https://user-images.githubusercontent.com/23486819/149876180-7c8af498-912a-4ccd-aff0-b170970765d3.png)
